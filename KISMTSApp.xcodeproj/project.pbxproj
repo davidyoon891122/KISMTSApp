@@ -12,6 +12,7 @@
 		3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */; };
 		3247DAB12AAED56800D181B4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3247DAB02AAED56800D181B4 /* SnapKit */; };
 		3247DAB42AAED8EC00D181B4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */; };
+		3286BC2C2AAFD6F2006BBD8A /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3286BC2B2AAFD6F2006BBD8A /* ApiKey.plist */; };
 		3298859B2AA1BB3C008E6001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859A2AA1BB3C008E6001 /* AppDelegate.swift */; };
 		3298859D2AA1BB3C008E6001 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859C2AA1BB3C008E6001 /* SceneDelegate.swift */; };
 		3298859F2AA1BB3C008E6001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859E2AA1BB3C008E6001 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		3202A2FC2AAEA2D9002078B0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseModel.swift; sourceTree = "<group>"; };
 		3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		3286BC2B2AAFD6F2006BBD8A /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		329885972AA1BB3C008E6001 /* KISMTSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KISMTSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3298859A2AA1BB3C008E6001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3298859C2AA1BB3C008E6001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				329885A82AA1BB3D008E6001 /* Info.plist */,
 				329885B82AA1BD74008E6001 /* Tool */,
 				3247DAB22AAED81300D181B4 /* Model */,
+				3286BC2B2AAFD6F2006BBD8A /* ApiKey.plist */,
 			);
 			path = KISMTSApp;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3286BC2C2AAFD6F2006BBD8A /* ApiKey.plist in Resources */,
 				329885A72AA1BB3D008E6001 /* LaunchScreen.storyboard in Resources */,
 				329885A42AA1BB3D008E6001 /* Assets.xcassets in Resources */,
 			);

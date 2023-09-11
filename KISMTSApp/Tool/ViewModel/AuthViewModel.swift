@@ -35,7 +35,7 @@ class AuthViewModel: AuthViewModelType, AuthViewModelInput, AuthViewModelOutput 
     func requestToken() {
         Task {
             do {
-                let data = await repository.requestToken()
+                let data = await repository.requestToken(appKey: "", appSecret: "")
             } catch {
                 print("Error: \(error)")
             }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RepositoryType {
-    func requestToken() async -> AccessTokenResponseModel?
+    func requestToken(appKey: String, appSecret: String) async -> AccessTokenResponseModel?
 }
 
 class Repository: RepositoryType {
@@ -18,7 +18,7 @@ class Repository: RepositoryType {
         self.service = service
     }
     
-    func requestToken() async -> AccessTokenResponseModel? {
+    func requestToken(appKey: String, appSecret: String) async -> AccessTokenResponseModel? {
         let url = URL(string: "https://openapi.koreainvestment.com:9443/oauth2/tokenP")!
         
         do {
@@ -27,8 +27,8 @@ class Repository: RepositoryType {
                 method: .post,
                 params: [
                     "grant_type": "client_credentials",
-                    "appkey": "",
-                    "appsecret": ""
+                    "appkey": appKey,
+                    "appsecret": appSecret
                 ],
                 responseData: AccessTokenResponseModel.self
             )
