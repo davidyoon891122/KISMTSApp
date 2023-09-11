@@ -11,6 +11,7 @@
 		3202A2FD2AAEA2D9002078B0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FC2AAEA2D9002078B0 /* Repository.swift */; };
 		3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */; };
 		3247DAB12AAED56800D181B4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3247DAB02AAED56800D181B4 /* SnapKit */; };
+		3247DAB42AAED8EC00D181B4 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */; };
 		3298859B2AA1BB3C008E6001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859A2AA1BB3C008E6001 /* AppDelegate.swift */; };
 		3298859D2AA1BB3C008E6001 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859C2AA1BB3C008E6001 /* SceneDelegate.swift */; };
 		3298859F2AA1BB3C008E6001 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298859E2AA1BB3C008E6001 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		3202A2F92AAEA13B002078B0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3202A2FC2AAEA2D9002078B0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseModel.swift; sourceTree = "<group>"; };
+		3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		329885972AA1BB3C008E6001 /* KISMTSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KISMTSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3298859A2AA1BB3C008E6001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3298859C2AA1BB3C008E6001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,22 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		3247DAB22AAED81300D181B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3247DAB52AAEDCEB00D181B4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3202A2FC2AAEA2D9002078B0 /* Repository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		3298858E2AA1BB3C008E6001 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +104,8 @@
 				329885A52AA1BB3D008E6001 /* LaunchScreen.storyboard */,
 				329885A82AA1BB3D008E6001 /* Info.plist */,
 				329885B82AA1BD74008E6001 /* Tool */,
-				3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */,
+				3247DAB22AAED81300D181B4 /* Model */,
+				3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */,
 			);
 			path = KISMTSApp;
 			sourceTree = "<group>";
@@ -115,7 +134,7 @@
 			children = (
 				329885B92AA1BD80008E6001 /* Preview */,
 				3202A2FB2AAEA2C9002078B0 /* Service */,
-				3202A2FC2AAEA2D9002078B0 /* Repository.swift */,
+				3247DAB52AAEDCEB00D181B4 /* Repository */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -214,6 +233,7 @@
 				329885B52AA1BD6E008E6001 /* DeviceType.swift in Sources */,
 				3202A2FA2AAEA13B002078B0 /* Service.swift in Sources */,
 				3298859B2AA1BB3C008E6001 /* AppDelegate.swift in Sources */,
+				3247DAB42AAED8EC00D181B4 /* AuthViewModel.swift in Sources */,
 				3202A2FD2AAEA2D9002078B0 /* Repository.swift in Sources */,
 				329885BD2AA1C0CC008E6001 /* TabbarItem.swift in Sources */,
 				3298859D2AA1BB3C008E6001 /* SceneDelegate.swift in Sources */,

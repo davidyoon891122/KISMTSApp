@@ -22,6 +22,17 @@ class ViewController: UIViewController {
         return button
     }()
 
+    private var authViewModel: AuthViewModelType
+    
+    init(authViewModel: AuthViewModelType) {
+        self.authViewModel = authViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +40,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupViews()
+        bindUI()
     }
 
 }
@@ -48,10 +60,19 @@ private extension ViewController {
         tokenButton.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
+            $0.centerY.equalToSuperview()
             $0.height.equalTo(50.0)
         }
-        
-        
+    }
+    
+    func bindUI() {
+        tokenButton.addTarget(self, action: #selector(didTapTokenButton), for: .touchUpInside)
+    }
+    
+    @objc
+    func didTapTokenButton() {
+        print("Did Tap tokenButton")
+        authViewModel.inputs.requestToken()
     }
 }
 
@@ -60,7 +81,7 @@ import SwiftUI
 
 struct ViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        ViewController()
+        ViewController(authViewModel: AuthViewModel(repository: Repository(service: Service())))
             .showPreview()
     }
 }
