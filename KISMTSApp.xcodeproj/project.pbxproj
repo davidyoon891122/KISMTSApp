@@ -79,6 +79,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		3247DAB62AAEFC8400D181B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3298858E2AA1BB3C008E6001 = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +113,6 @@
 				329885A82AA1BB3D008E6001 /* Info.plist */,
 				329885B82AA1BD74008E6001 /* Tool */,
 				3247DAB22AAED81300D181B4 /* Model */,
-				3247DAB32AAED8EC00D181B4 /* AuthViewModel.swift */,
 			);
 			path = KISMTSApp;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 		329885B82AA1BD74008E6001 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3247DAB62AAEFC8400D181B4 /* ViewModel */,
 				329885B92AA1BD80008E6001 /* Preview */,
 				3202A2FB2AAEA2C9002078B0 /* Service */,
 				3247DAB52AAEDCEB00D181B4 /* Repository */,
