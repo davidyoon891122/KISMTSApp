@@ -91,6 +91,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3286BC2F2AAFE4F1006BBD8A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3286BC2D2AAFDE6C006BBD8A /* PlistManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		3298858E2AA1BB3C008E6001 = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +156,7 @@
 				329885B92AA1BD80008E6001 /* Preview */,
 				3202A2FB2AAEA2C9002078B0 /* Service */,
 				3247DAB52AAEDCEB00D181B4 /* Repository */,
-				3286BC2D2AAFDE6C006BBD8A /* PlistManager.swift */,
+				3286BC2F2AAFE4F1006BBD8A /* Manager */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
