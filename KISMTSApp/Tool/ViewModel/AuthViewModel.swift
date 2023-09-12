@@ -35,7 +35,21 @@ class AuthViewModel: AuthViewModelType, AuthViewModelInput, AuthViewModelOutput 
     func requestToken() {
         Task {
             do {
-                let data = await repository.requestToken(appKey: "", appSecret: "")
+                let keyDictionary = PlistManager.shared.loadKisApi()
+                
+                
+                
+                guard let apiKey = keyDictionary["appKey"] as? String,
+                    let apiSecret = keyDictionary["appSecret"] as? String
+                else {
+                    print("appKey, appSecret을 확인해 주세요.")
+                    return
+                }
+                
+                
+                
+                let data = await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
+                
             } catch {
                 print("Error: \(error)")
             }
