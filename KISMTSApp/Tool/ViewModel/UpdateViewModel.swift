@@ -7,23 +7,23 @@
 
 import Foundation
 
-protocol AuthViewModelInput {
+protocol UpdateViewModelInput {
     func requestToken()
 }
 
-protocol AuthViewModelOutput {
+protocol UpdateViewModelOutput {
     
 }
 
-protocol AuthViewModelType {
-    var inputs: AuthViewModelInput { get }
-    var outputs: AuthViewModelOutput { get }
+protocol UpdateViewModelType {
+    var inputs: UpdateViewModelInput { get }
+    var outputs: UpdateViewModelOutput { get }
 }
 
 
-class AuthViewModel: AuthViewModelType, AuthViewModelInput, AuthViewModelOutput {
-    var inputs: AuthViewModelInput { self }
-    var outputs: AuthViewModelOutput { self }
+class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewModelOutput {
+    var inputs: UpdateViewModelInput { self }
+    var outputs: UpdateViewModelOutput { self }
     
     private var repository: RepositoryType
     
