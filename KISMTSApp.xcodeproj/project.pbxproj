@@ -22,8 +22,11 @@
 		329885B52AA1BD6E008E6001 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329885B22AA1BD6E008E6001 /* DeviceType.swift */; };
 		329885B62AA1BD6E008E6001 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329885B32AA1BD6E008E6001 /* UIViewPreview.swift */; };
 		329885B72AA1BD6E008E6001 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329885B42AA1BD6E008E6001 /* Extension+UIViewController.swift */; };
-		329885BB2AA1BE74008E6001 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329885BA2AA1BE74008E6001 /* TabbarViewController.swift */; };
 		329885BD2AA1C0CC008E6001 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329885BC2AA1C0CC008E6001 /* TabbarItem.swift */; };
+		32A972D02AB12EE90010BB97 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A972CF2AB12EE90010BB97 /* Coordinator.swift */; };
+		32A972D32AB12F450010BB97 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A972D22AB12F450010BB97 /* MainCoordinator.swift */; };
+		32A972D52AB1303A0010BB97 /* HomeTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A972D42AB1303A0010BB97 /* HomeTabCoordinator.swift */; };
+		32A972D72AB130D00010BB97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A972D62AB130D00010BB97 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +46,11 @@
 		329885B22AA1BD6E008E6001 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		329885B32AA1BD6E008E6001 /* UIViewPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		329885B42AA1BD6E008E6001 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		329885BA2AA1BE74008E6001 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		329885BC2AA1C0CC008E6001 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
+		32A972CF2AB12EE90010BB97 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		32A972D22AB12F450010BB97 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		32A972D42AB1303A0010BB97 /* HomeTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabCoordinator.swift; sourceTree = "<group>"; };
+		32A972D62AB130D00010BB97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				3298859E2AA1BB3C008E6001 /* ViewController.swift */,
-				329885BA2AA1BE74008E6001 /* TabbarViewController.swift */,
 				329885BC2AA1C0CC008E6001 /* TabbarItem.swift */,
+				32A972D62AB130D00010BB97 /* HomeViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 				3202A2FB2AAEA2C9002078B0 /* Service */,
 				3247DAB52AAEDCEB00D181B4 /* Repository */,
 				3286BC2F2AAFE4F1006BBD8A /* Manager */,
+				32A972D12AB12F350010BB97 /* Coordinator */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -169,6 +176,16 @@
 				329885B32AA1BD6E008E6001 /* UIViewPreview.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		32A972D12AB12F350010BB97 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				32A972CF2AB12EE90010BB97 /* Coordinator.swift */,
+				32A972D22AB12F450010BB97 /* MainCoordinator.swift */,
+				32A972D42AB1303A0010BB97 /* HomeTabCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,15 +268,18 @@
 				329885B62AA1BD6E008E6001 /* UIViewPreview.swift in Sources */,
 				3298859F2AA1BB3C008E6001 /* ViewController.swift in Sources */,
 				3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */,
-				329885BB2AA1BE74008E6001 /* TabbarViewController.swift in Sources */,
+				32A972D72AB130D00010BB97 /* HomeViewController.swift in Sources */,
 				329885B72AA1BD6E008E6001 /* Extension+UIViewController.swift in Sources */,
 				329885B52AA1BD6E008E6001 /* DeviceType.swift in Sources */,
+				32A972D02AB12EE90010BB97 /* Coordinator.swift in Sources */,
+				32A972D52AB1303A0010BB97 /* HomeTabCoordinator.swift in Sources */,
 				3202A2FA2AAEA13B002078B0 /* Service.swift in Sources */,
 				3298859B2AA1BB3C008E6001 /* AppDelegate.swift in Sources */,
 				3247DAB42AAED8EC00D181B4 /* AuthViewModel.swift in Sources */,
 				3202A2FD2AAEA2D9002078B0 /* Repository.swift in Sources */,
 				329885BD2AA1C0CC008E6001 /* TabbarItem.swift in Sources */,
 				3298859D2AA1BB3C008E6001 /* SceneDelegate.swift in Sources */,
+				32A972D32AB12F450010BB97 /* MainCoordinator.swift in Sources */,
 				3286BC2E2AAFDE6C006BBD8A /* PlistManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

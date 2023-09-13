@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var coordinator: MainCoordinator?
 
     func scene(
         _ scene: UIScene,
@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = ViewController(authViewModel: AuthViewModel(repository: Repository(service: Service())))
+        let tabbarController = UITabBarController()
+        coordinator = MainCoordinator(tabbarController: tabbarController)
+        coordinator?.start()
+        
+        window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
     }
 }
