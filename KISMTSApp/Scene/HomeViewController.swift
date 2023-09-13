@@ -43,7 +43,7 @@ final class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func setupViews() {
-        view.backgroundColor = .systemCyan
+        view.backgroundColor = .systemBackground
         
         [
             moveDetailButton

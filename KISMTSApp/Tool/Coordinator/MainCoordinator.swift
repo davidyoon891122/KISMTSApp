@@ -25,7 +25,7 @@ class MainCoordinator: Coordinator {
         let updateViewModel = UpdateViewModel(repository: Repository(service: Service()), mainCoordinator: self)
         let updateVC = UpdateViewController(updateViewModel: updateViewModel)
         
-        navigationController.pushViewController(updateVC, animated: true)
+        navigationController.pushViewController(updateVC, animated: false)
     }
     
     func goToMainTabbarController() {
@@ -34,7 +34,7 @@ class MainCoordinator: Coordinator {
         childCoordinator.append(mainTabbarCoordinator)
         mainTabbarCoordinator.start()
         
-        navigationController.setViewControllers([tabbarController], animated: true)
+        navigationController.setViewControllers([tabbarController], animated: false)
     }
     
     

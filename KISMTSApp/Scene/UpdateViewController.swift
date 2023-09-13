@@ -35,7 +35,10 @@ final class UpdateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateViewModel.inputs.requestToken()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let self = self else { return }
+            self.updateViewModel.inputs.requestToken()
+        }
     }
 }
 
