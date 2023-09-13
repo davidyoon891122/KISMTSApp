@@ -22,9 +22,9 @@ class ViewController: UIViewController {
         return button
     }()
 
-    private var authViewModel: AuthViewModelType
+    private var authViewModel: UpdateViewModelType
     
-    init(authViewModel: AuthViewModelType) {
+    init(authViewModel: UpdateViewModelType) {
         self.authViewModel = authViewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -81,7 +81,7 @@ import SwiftUI
 
 struct ViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        ViewController(authViewModel: AuthViewModel(repository: Repository(service: Service())))
+        ViewController(authViewModel: UpdateViewModel(repository: Repository(service: Service())))
             .showPreview()
     }
 }

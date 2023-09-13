@@ -9,6 +9,7 @@ import Foundation
 
 protocol UpdateViewModelInput {
     func requestToken()
+    func isValidAccessToken() -> Bool
 }
 
 protocol UpdateViewModelOutput {
@@ -31,13 +32,12 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
         self.repository = repository
     }
     
-    
     func requestToken() {
-        Task {
-            do {
+        if isValidAccessToken() {
+            print("move to HomeVC")
+        } else {
+            Task {
                 let keyDictionary = PlistManager.shared.loadKisApi()
-                
-                
                 
                 guard let apiKey = keyDictionary["appKey"] as? String,
                     let apiSecret = keyDictionary["appSecret"] as? String
@@ -46,14 +46,40 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                     return
                 }
                 
+                let accessTokenModel = await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
+                    
+                guard let accessTokenModel = accessTokenModel else {
+                    print("받아온 결과 값이 없네요 버그에요 버끄!")
+                    return
+                }
                 
-                
-                let data = await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
-                
-            } catch {
-                print("Error: \(error)")
+                UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
             }
         }
+    }
+    
+    func isValidAccessToken() -> Bool  {
+        do {
+            let accessTokenModel = try UserDefaultsManager.shared.loadAccessToken()
+            print(accessTokenModel)
+            
+            if accessTokenModel.isValid {
+                print("Have a valid Token!!  Don't request an AccessToken !")
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            print("error: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    func isExpiredToken(expiredDate: Int) -> Bool {
+        
+        
+        
+        return false
     }
     
     
