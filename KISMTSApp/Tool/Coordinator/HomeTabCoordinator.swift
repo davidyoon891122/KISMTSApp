@@ -19,7 +19,8 @@ class HomeTabCoordinator: Coordinator {
     }
     
     func start() {
-        let homeVC = HomeViewController()
+        let homeViewModel = HomeViewModel(homeTabCoordinator: self)
+        let homeVC = HomeViewController(homeViewModel: homeViewModel)
         
         homeVC.tabBarItem = UITabBarItem(
             title: TabbarItem.myAsset.title,
@@ -35,6 +36,13 @@ class HomeTabCoordinator: Coordinator {
         } else {
             tabbarController.viewControllers = [navigationController]
         }
+    }
+    
+    
+    func goToHomeDetailView() {
+        let homeDetailViewController = HomeDetailViewController()
+        
+        navigationController.pushViewController(homeDetailViewController, animated: true)
     }
     
     

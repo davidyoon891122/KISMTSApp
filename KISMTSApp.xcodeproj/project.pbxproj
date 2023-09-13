@@ -31,6 +31,8 @@
 		32EA97AF2AB143D3002F9116 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */; };
 		32EA97B12AB167AA002F9116 /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */; };
 		32EA97B42AB1749A002F9116 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97B32AB1749A002F9116 /* MainCoordinator.swift */; };
+		32EA97B82AB18D4B002F9116 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97B72AB18D4B002F9116 /* HomeViewModel.swift */; };
+		32EA97BC2AB18E66002F9116 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97BB2AB18E66002F9116 /* HomeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
 		32EA97B32AB1749A002F9116 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		32EA97B72AB18D4B002F9116 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		32EA97BB2AB18E66002F9116 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				3247DAB32AAED8EC00D181B4 /* UpdateViewModel.swift */,
+				32EA97B72AB18D4B002F9116 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -160,8 +165,8 @@
 			children = (
 				3298859E2AA1BB3C008E6001 /* ViewController.swift */,
 				329885BC2AA1C0CC008E6001 /* TabbarItem.swift */,
-				32A972D62AB130D00010BB97 /* HomeViewController.swift */,
-				32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */,
+				32EA97BA2AB18E55002F9116 /* Home */,
+				32EA97B92AB18E4B002F9116 /* Update */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -206,6 +211,23 @@
 				32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		32EA97B92AB18E4B002F9116 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */,
+			);
+			name = Update;
+			sourceTree = "<group>";
+		};
+		32EA97BA2AB18E55002F9116 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				32A972D62AB130D00010BB97 /* HomeViewController.swift */,
+				32EA97BB2AB18E66002F9116 /* HomeDetailViewController.swift */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +309,7 @@
 			files = (
 				329885B62AA1BD6E008E6001 /* UIViewPreview.swift in Sources */,
 				32EA97B12AB167AA002F9116 /* AccessTokenModel.swift in Sources */,
+				32EA97BC2AB18E66002F9116 /* HomeDetailViewController.swift in Sources */,
 				3298859F2AA1BB3C008E6001 /* ViewController.swift in Sources */,
 				3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */,
 				32A972D72AB130D00010BB97 /* HomeViewController.swift in Sources */,
@@ -301,6 +324,7 @@
 				32EA97B42AB1749A002F9116 /* MainCoordinator.swift in Sources */,
 				3202A2FD2AAEA2D9002078B0 /* Repository.swift in Sources */,
 				329885BD2AA1C0CC008E6001 /* TabbarItem.swift in Sources */,
+				32EA97B82AB18D4B002F9116 /* HomeViewModel.swift in Sources */,
 				32EA97AF2AB143D3002F9116 /* UserDefaultsManager.swift in Sources */,
 				3298859D2AA1BB3C008E6001 /* SceneDelegate.swift in Sources */,
 				32A972D32AB12F450010BB97 /* MainTabbarCoordinator.swift in Sources */,
