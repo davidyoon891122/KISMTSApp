@@ -19,11 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let tabbarController = UITabBarController()
-        coordinator = MainCoordinator(tabbarController: tabbarController)
+        
+        let navigationController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: navigationController)
         coordinator?.start()
         
-        window?.rootViewController = tabbarController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 }

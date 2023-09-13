@@ -28,13 +28,17 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
     
     private var repository: RepositoryType
     
-    init(repository: RepositoryType) {
+    private var mainCoordinator: MainCoordinator
+    
+    init(repository: RepositoryType, mainCoordinator: MainCoordinator) {
         self.repository = repository
+        self.mainCoordinator = mainCoordinator
     }
     
     func requestToken() {
         if isValidAccessToken() {
             print("move to HomeVC")
+            mainCoordinator.goToMainTabbarController()
         } else {
             Task {
                 let keyDictionary = PlistManager.shared.loadKisApi()
@@ -63,11 +67,11 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
             let accessTokenModel = try UserDefaultsManager.shared.loadAccessToken()
             print(accessTokenModel)
             
-            if accessTokenModel.isValid {
+            if isExpiredToken(expiredDate: accessTokenModel.expireDate) {
                 print("Have a valid Token!!  Don't request an AccessToken !")
-                return true
-            } else {
                 return false
+            } else {
+                return true
             }
         } catch {
             print("error: \(error.localizedDescription)")
@@ -75,12 +79,13 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
         }
     }
     
-    func isExpiredToken(expiredDate: Int) -> Bool {
+    func isExpiredToken(expiredDate: Date) -> Bool {
+        let currentDate = Date()
+        let timeInterval = currentDate.timeIntervalSince(expiredDate)
+        let hoursInADay: TimeInterval = 24 * 60 * 60
         
+        print("RemainTime: \(timeInterval), hoursInADay: \(hoursInADay)")
         
-        
-        return false
+        return timeInterval < 0 || timeInterval >= hoursInADay
     }
-    
-    
 }

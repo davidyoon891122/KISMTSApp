@@ -63,7 +63,7 @@ import SwiftUI
 
 struct UpdateViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        UpdateViewController(updateViewModel: UpdateViewModel(repository: Repository(service: Service())))
+        UpdateViewController(updateViewModel: UpdateViewModel(repository: Repository(service: Service()), mainCoordinator: MainCoordinator(navigationController: UINavigationController())))
             .showPreview()
     }
 }

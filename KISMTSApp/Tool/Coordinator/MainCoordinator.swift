@@ -8,16 +8,34 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
+    
     var childCoordinator: [Coordinator] = []
     
-    var tabbarController: UITabBarController
+    var navigationController: UINavigationController
     
-    init(tabbarController: UITabBarController) {
-        self.tabbarController = tabbarController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
     func start() {
-        let homeTabCoordinator = HomeTabCoordinator(tabbarController: self.tabbarController)
-        homeTabCoordinator.start()
+        goToUpdateView()
     }
+    
+    func goToUpdateView() {
+        let updateViewModel = UpdateViewModel(repository: Repository(service: Service()), mainCoordinator: self)
+        let updateVC = UpdateViewController(updateViewModel: updateViewModel)
+        
+        navigationController.pushViewController(updateVC, animated: true)
+    }
+    
+    func goToMainTabbarController() {
+        let tabbarController = UITabBarController()
+        let mainTabbarCoordinator = MainTabbarCoordinator(tabbarController: tabbarController)
+        childCoordinator.append(mainTabbarCoordinator)
+        mainTabbarCoordinator.start()
+        
+        navigationController.setViewControllers([tabbarController], animated: true)
+    }
+    
+    
 }
