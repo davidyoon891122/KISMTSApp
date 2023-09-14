@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol UpdateViewModelInput {
     func requestToken()
-    func isValidAccessToken() -> Bool
+    func hasValidAccessToken() -> Bool
 }
 
 protocol UpdateViewModelOutput {
@@ -36,7 +37,7 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
     }
     
     func requestToken() {
-        if isValidAccessToken() {
+        if hasValidAccessToken() {
             print("move to HomeVC")
             mainCoordinator.goToMainTabbarController()
         } else {
@@ -58,11 +59,12 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                 }
                 
                 UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
+                mainCoordinator.goToMainTabbarController()
             }
         }
     }
     
-    func isValidAccessToken() -> Bool  {
+    func hasValidAccessToken() -> Bool  {
         do {
             let accessTokenModel = try UserDefaultsManager.shared.loadAccessToken()
             print(accessTokenModel)
