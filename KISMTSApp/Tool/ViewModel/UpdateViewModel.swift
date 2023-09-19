@@ -71,11 +71,11 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
             let accessTokenModel = try UserDefaultsManager.shared.loadAccessToken()
             print(accessTokenModel)
             
-            if isExpiredToken(expiredDate: accessTokenModel.expireDate) {
+            if accessTokenModel.accessTokenExpiredDate.isValidStringDate {
                 print("Have a valid Token!!  Don't request an AccessToken !")
-                return false
-            } else {
                 return true
+            } else {
+                return false
             }
         } catch {
             print("error: \(error.localizedDescription)")

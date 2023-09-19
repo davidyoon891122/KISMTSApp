@@ -11,6 +11,7 @@
 		3202A2FD2AAEA2D9002078B0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FC2AAEA2D9002078B0 /* Repository.swift */; };
 		3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */; };
 		323B625F2AB963E20067DC2E /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B625E2AB963E20067DC2E /* SeparatorView.swift */; };
+		323B62612AB97FEA0067DC2E /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B62602AB97FEA0067DC2E /* Extension+String.swift */; };
 		3247DAB12AAED56800D181B4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3247DAB02AAED56800D181B4 /* SnapKit */; };
 		3247DAB42AAED8EC00D181B4 /* UpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3247DAB32AAED8EC00D181B4 /* UpdateViewModel.swift */; };
 		3286BC2C2AAFD6F2006BBD8A /* ApiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3286BC2B2AAFD6F2006BBD8A /* ApiKey.plist */; };
@@ -42,6 +43,7 @@
 		3202A2FC2AAEA2D9002078B0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseModel.swift; sourceTree = "<group>"; };
 		323B625E2AB963E20067DC2E /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		323B62602AB97FEA0067DC2E /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		3247DAB32AAED8EC00D181B4 /* UpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewModel.swift; sourceTree = "<group>"; };
 		3286BC2B2AAFD6F2006BBD8A /* ApiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKey.plist; sourceTree = "<group>"; };
 		3286BC2D2AAFDE6C006BBD8A /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 				3202A2F92AAEA13B002078B0 /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		323B62622AB980A00067DC2E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				323B62602AB97FEA0067DC2E /* Extension+String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		3247DAB22AAED81300D181B4 /* Entity */ = {
@@ -185,6 +195,7 @@
 				3247DAB52AAEDCEB00D181B4 /* Repository */,
 				3286BC2F2AAFE4F1006BBD8A /* Manager */,
 				32A972D12AB12F350010BB97 /* Coordinator */,
+				323B62622AB980A00067DC2E /* Extension */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -323,6 +334,7 @@
 				32EA97AD2AB13C83002F9116 /* UpdateViewController.swift in Sources */,
 				329885B52AA1BD6E008E6001 /* DeviceType.swift in Sources */,
 				32A972D02AB12EE90010BB97 /* Coordinator.swift in Sources */,
+				323B62612AB97FEA0067DC2E /* Extension+String.swift in Sources */,
 				32A972D52AB1303A0010BB97 /* HomeTabCoordinator.swift in Sources */,
 				3202A2FA2AAEA13B002078B0 /* Service.swift in Sources */,
 				3298859B2AA1BB3C008E6001 /* AppDelegate.swift in Sources */,

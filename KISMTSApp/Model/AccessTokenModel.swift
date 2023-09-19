@@ -9,5 +9,6 @@ import Foundation
 
 struct AccessTokenModel: Codable {
     let accessToken: String
-    let expireDate: Date
+    let tokenType: String
+    let accessTokenExpiredDate: String
 }

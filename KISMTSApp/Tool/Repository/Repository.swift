@@ -36,7 +36,11 @@ class Repository: RepositoryType {
             )
             print(data)
             
-            return AccessTokenModel(accessToken: data.accessToken, expireDate: Date())
+            return AccessTokenModel(
+                accessToken: data.accessToken,
+                tokenType: data.tokenType,
+                accessTokenExpiredDate: data.accessTokenExpiredDate
+            )
         } catch {
             print(error)
             throw error
