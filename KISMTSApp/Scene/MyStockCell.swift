@@ -142,13 +142,16 @@ final class MyStockCell: UICollectionViewCell {
         return view
     }()
     
+    private let separatorView = SeparatorView()
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         
         [
             imageView,
             nameLabelView,
-            priceLabelVeiw
+            priceLabelVeiw,
+            separatorView
         ]
             .forEach {
                 view.addSubview($0)
@@ -172,6 +175,12 @@ final class MyStockCell: UICollectionViewCell {
             $0.centerY.equalTo(nameLabelView)
             $0.leading.equalTo(nameLabelView.snp.trailing)
             $0.trailing.equalToSuperview().offset(-16)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         return view
