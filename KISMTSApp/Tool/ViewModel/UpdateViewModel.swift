@@ -50,18 +50,17 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                     print("appKey, appSecret을 확인해 주세요.")
                     return
                 }
-                
-                let accessTokenModel = await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
+                do {
+                    let accessTokenModel = try await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
                     
-                guard let accessTokenModel = accessTokenModel else {
-                    print("받아온 결과 값이 없네요 버그에요 버끄!")
-                    return
-                }
-                
-                UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.mainCoordinator.goToMainTabbarController()
+                    UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self = self else { return }
+                        self.mainCoordinator.goToMainTabbarController()
+                    }
+                    
+                } catch {
+                    print("Please diplay error with popupView: \(error)")
                 }
             }
         }
