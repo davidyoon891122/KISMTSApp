@@ -186,7 +186,15 @@ final class MyStockCell: UICollectionViewCell {
         return view
     }()
     
-    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                containerView.backgroundColor = .secondarySystemBackground
+            } else {
+                containerView.backgroundColor = .systemBackground
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
