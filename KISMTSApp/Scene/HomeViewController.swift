@@ -20,7 +20,25 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var collectionView: UICollectionView = {
+        let layout = createLayout()
+        
+        let collectionView = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: layout
+        )
+        
+        collectionView.register(
+            MyStockCell.self,
+            forCellWithReuseIdentifier: MyStockCell.identifier
+        )
+        
+        return collectionView
+    }()
+    
     private var homeViewModel: HomeViewModelType
+    
+    private var datasource: UICollectionViewDiffableDataSource<Int, Int>!
     
     init(homeViewModel: HomeViewModelType) {
         self.homeViewModel = homeViewModel
@@ -38,6 +56,7 @@ final class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureDatasource()
     }
 }
 
@@ -46,18 +65,48 @@ private extension HomeViewController {
         view.backgroundColor = .systemBackground
         
         [
-            moveDetailButton
+            collectionView
         ]
             .forEach {
                 view.addSubview($0)
             }
         
-        moveDetailButton.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(50)
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, layoutEnvironment in
+            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50)))
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50)), subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            
+            return section
+        })
+        
+        return layout
+    }
+    
+    func configureDatasource() {
+        datasource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyStockCell.identifier, for: indexPath) as? MyStockCell else { return UICollectionViewCell() }
+            
+            return cell
+        })
+        
+        applySnapshot()
+    }
+    
+    func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
+        snapshot.appendSections([0])
+        snapshot.appendItems([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        
+        datasource.apply(snapshot, animatingDifferences: true)
     }
     
     @objc
@@ -65,3 +114,14 @@ private extension HomeViewController {
         homeViewModel.inputs.moveToDetailView()
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct HomeViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        HomeViewController(homeViewModel: HomeViewModel(homeTabCoordinator: HomeTabCoordinator(tabbarController: UITabBarController())))
+            .showPreview()
+    }
+}
+#endif

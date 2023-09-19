@@ -59,7 +59,10 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                 }
                 
                 UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
-                mainCoordinator.goToMainTabbarController()
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.mainCoordinator.goToMainTabbarController()
+                }
             }
         }
     }
