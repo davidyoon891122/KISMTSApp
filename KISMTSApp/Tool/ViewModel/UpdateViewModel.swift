@@ -27,11 +27,11 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
     var inputs: UpdateViewModelInput { self }
     var outputs: UpdateViewModelOutput { self }
     
-    private var repository: RepositoryType
+    private var repository: UpdateRepositoryType
     
     private var mainCoordinator: MainCoordinator
     
-    init(repository: RepositoryType, mainCoordinator: MainCoordinator) {
+    init(repository: UpdateRepositoryType, mainCoordinator: MainCoordinator) {
         self.repository = repository
         self.mainCoordinator = mainCoordinator
     }

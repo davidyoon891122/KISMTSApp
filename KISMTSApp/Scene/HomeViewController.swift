@@ -120,7 +120,10 @@ import SwiftUI
 
 struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        HomeViewController(homeViewModel: HomeViewModel(homeTabCoordinator: HomeTabCoordinator(tabbarController: UITabBarController())))
+        HomeViewController(homeViewModel: HomeViewModel(
+            homeTabCoordinator: HomeTabCoordinator(tabbarController: UITabBarController()),
+            repository: HomeRepository(service: Service())
+        ))
             .showPreview()
     }
 }

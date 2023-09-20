@@ -26,13 +26,23 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput 
     
     private var homeTabCoordinator: HomeTabCoordinator
     
-    init(homeTabCoordinator: HomeTabCoordinator) {
+    private var repository: HomeRepositoryType
+    
+    init(
+        homeTabCoordinator: HomeTabCoordinator,
+        repository: HomeRepositoryType
+    ) {
         self.homeTabCoordinator = homeTabCoordinator
+        self.repository = repository
     }
     
     
     func moveToDetailView() {
         homeTabCoordinator.goToHomeDetailView()
+    }
+    
+    func requestMyBalance() {
+        repository.requestMyBalance()
     }
     
 }

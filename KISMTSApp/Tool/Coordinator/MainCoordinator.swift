@@ -22,7 +22,7 @@ class MainCoordinator: Coordinator {
     }
     
     func goToUpdateView() {
-        let updateViewModel = UpdateViewModel(repository: Repository(service: Service()), mainCoordinator: self)
+        let updateViewModel = UpdateViewModel(repository: UpdateRepository(service: Service()), mainCoordinator: self)
         let updateVC = UpdateViewController(updateViewModel: updateViewModel)
         
         navigationController.pushViewController(updateVC, animated: false)

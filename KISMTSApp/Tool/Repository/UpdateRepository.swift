@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol RepositoryType {
+protocol UpdateRepositoryType {
     func requestToken(appKey: String, appSecret: String) async throws -> AccessTokenModel
     
     
 }
 
-class Repository: RepositoryType {
+class UpdateRepository: UpdateRepositoryType {
     private var service: ServiceType
     
     init(service: ServiceType) {
@@ -21,11 +21,9 @@ class Repository: RepositoryType {
     }
     
     func requestToken(appKey: String, appSecret: String) async throws -> AccessTokenModel {
-        let url = URL(string: "https://openapi.koreainvestment.com:9443/oauth2/tokenP")!
-        
         do {
             let data = try await service.requestService(
-                url: url,
+                url: URLInfo.accessToken.url,
                 method: .post,
                 params: [
                     "grant_type": "client_credentials",

@@ -81,7 +81,7 @@ import SwiftUI
 
 struct ViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        ViewController(authViewModel: UpdateViewModel(repository: Repository(service: Service()), mainCoordinator: MainCoordinator(navigationController: UINavigationController())))
+        ViewController(authViewModel: UpdateViewModel(repository: UpdateRepository(service: Service()), mainCoordinator: MainCoordinator(navigationController: UINavigationController())))
             .showPreview()
     }
 }

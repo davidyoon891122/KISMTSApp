@@ -19,7 +19,7 @@ class HomeTabCoordinator: Coordinator {
     }
     
     func start() {
-        let homeViewModel = HomeViewModel(homeTabCoordinator: self)
+        let homeViewModel = HomeViewModel(homeTabCoordinator: self, repository: HomeRepository(service: Service()))
         let homeVC = HomeViewController(homeViewModel: homeViewModel)
         
         homeVC.tabBarItem = UITabBarItem(
