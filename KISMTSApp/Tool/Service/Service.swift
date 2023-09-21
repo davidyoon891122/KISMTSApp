@@ -6,53 +6,51 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ServiceType {
     func requestService<T: Decodable>(
         url: URL,
         method: HTTPMethod,
-        params: [String: String]?,
-        responseData: T.Type
+        responseData: T.Type,
+        headers: HTTPHeaders,
+        params: [String: Any]
     ) async throws -> T
 }
 
 class Service: ServiceType {
+
+}
+
+extension ServiceType {
     func requestService<T: Decodable>(
         url: URL,
         method: HTTPMethod,
-        params: [String: String]?,
-        responseData: T.Type
+        responseData: T.Type,
+        headers: HTTPHeaders = [:],
+        params: [String: Any] = [:]
     ) async throws -> T {
-        do {
-            var request = URLRequest(url: url)
-            request.httpMethod = method.rawValue
-            if let params = params {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params)
-            }
-            
-            let (data, response) = try await URLSession.shared.data(for: request)
-            
-            print(data)
-            print(response)
-            
-            guard let responseData = try? JSONDecoder().decode(responseData.self, from: data) else { throw NetworkError.decodingError }
-            
-            return responseData
-            
-        } catch {
-            throw NetworkError.requestError
+        let dataRequest = AF.request(
+            url,
+            method: method,
+            parameters: params,
+            encoding: JSONEncoding.default,
+            headers: headers
+        )
+
+        let dataTask = dataRequest.serializingDecodable(responseData)
+
+        switch await dataTask.result {
+        case .success(let value):
+            print(value)
+            return value
+        case .failure(let error):
+            print(error)
+            print("Service Error: \(error.localizedDescription)")
+            throw NetworkError.responseError
         }
     }
 }
-
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case update = "UPDATE"
-    case delete = "DELETE"
-}
-
 
 enum NetworkError: Error {
     case requestError

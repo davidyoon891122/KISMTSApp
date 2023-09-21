@@ -25,12 +25,7 @@ class HomeRepository: HomeRepositoryType {
             
             if accessToken.accessTokenExpiredDate.isValidStringDate {
                 let bearToken = "\(accessToken.tokenType) \(accessToken.accessToken)"
-//                await service.requestService(
-//                    url: <#T##URL#>,
-//                    method: <#T##HTTPMethod#>,
-//                    params: <#T##[String : String]?#>,
-//                    responseData: <#T##Decodable.Protocol#>
-//                )
+                
                 
                 
                 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol HomeViewModelInput {
     func moveToDetailView()
@@ -42,7 +43,9 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput 
     }
     
     func requestMyBalance() {
-        repository.requestMyBalance()
+        Task {
+            await repository.requestMyBalance()
+        }
     }
     
 }

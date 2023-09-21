@@ -25,13 +25,14 @@ class UpdateRepository: UpdateRepositoryType {
             let data = try await service.requestService(
                 url: URLInfo.accessToken.url,
                 method: .post,
+                responseData: AccessTokenResponseModel.self,
                 params: [
                     "grant_type": "client_credentials",
                     "appkey": appKey,
                     "appsecret": appSecret
-                ],
-                responseData: AccessTokenResponseModel.self
+                ]
             )
+        
             print(data)
             
             return AccessTokenModel(
