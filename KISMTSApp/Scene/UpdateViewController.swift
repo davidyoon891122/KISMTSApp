@@ -44,6 +44,10 @@ final class UpdateViewController: UIViewController {
             self.updateViewModel.inputs.requestToken()
         }
     }
+    
+    deinit {
+        cancellable = []
+    }
 }
 
 private extension UpdateViewController {
@@ -67,7 +71,12 @@ private extension UpdateViewController {
         updateViewModel.outputs.errorPassThroughSubject
             .sink(receiveValue: { [weak self] error in
                 guard let self = self else { return }
+                print("UpdateViewController present popupView with error message: \(error)")
                 
+                let customPopupViewController = CustomPopupViewController(error: error)
+                customPopupViewController.modalPresentationStyle = .overFullScreen
+                
+                self.present(customPopupViewController, animated: false)
             })
             .store(in: &cancellable)
     }

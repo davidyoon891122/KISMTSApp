@@ -46,7 +46,7 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
         } else {
             Task {
                 let keyDictionary = PlistManager.shared.loadKisApi()
-                
+
                 guard let apiKey = keyDictionary["appKey"] as? String,
                     let apiSecret = keyDictionary["appSecret"] as? String
                 else {
@@ -56,13 +56,13 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                 }
                 do {
                     let accessTokenModel = try await repository.requestToken(appKey: apiKey, appSecret: apiSecret)
-                    
+
                     UserDefaultsManager.shared.saveAccessToken(accessTokenModel: accessTokenModel)
                     DispatchQueue.main.async { [weak self] in
                         guard let self = self else { return }
                         self.mainCoordinator.goToMainTabbarController()
                     }
-                    
+
                 } catch {
                     print("Please diplay error with popupView: \(error)")
                     errorPassThroughSubject.send(error.localizedDescription)
