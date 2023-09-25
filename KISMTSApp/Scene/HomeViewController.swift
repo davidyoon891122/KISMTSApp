@@ -34,6 +34,8 @@ final class HomeViewController: UIViewController {
         button.layer.cornerRadius = 4.0
         button.setTitle("LookUp", for: .normal)
         
+        button.addTarget(self, action: #selector(didTapLookUpButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -175,6 +177,19 @@ private extension HomeViewController {
     
     func configureNavigation() {
         navigationItem.title = "MyAsset"
+    }
+    
+    @objc
+    func didTapLookUpButton() {
+        guard let accountNumber = accountTextField.text,
+              accountNumber.isEmpty != true,
+              accountNumber.count == 10 else {
+            print("Please check account info again")
+            return
+        }
+        
+        print(accountNumber)
+        
     }
 }
 
