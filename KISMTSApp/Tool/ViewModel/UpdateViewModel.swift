@@ -14,7 +14,7 @@ protocol UpdateViewModelInput {
 }
 
 protocol UpdateViewModelOutput {
-    
+    var errorPassThroughSubject: PassthroughSubject<String, Never> { get }
 }
 
 protocol UpdateViewModelType {
@@ -31,9 +31,12 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
     
     private var mainCoordinator: MainCoordinator
     
+    var errorPassThroughSubject: PassthroughSubject<String, Never>
+    
     init(repository: UpdateRepositoryType, mainCoordinator: MainCoordinator) {
         self.repository = repository
         self.mainCoordinator = mainCoordinator
+        self.errorPassThroughSubject = .init()
     }
     
     func requestToken() {
@@ -48,6 +51,7 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                     let apiSecret = keyDictionary["appSecret"] as? String
                 else {
                     print("appKey, appSecret을 확인해 주세요.")
+                    errorPassThroughSubject.send("appKey, appSecret을 확인해 주세요.")
                     return
                 }
                 do {
@@ -61,6 +65,7 @@ class UpdateViewModel: UpdateViewModelType, UpdateViewModelInput, UpdateViewMode
                     
                 } catch {
                     print("Please diplay error with popupView: \(error)")
+                    errorPassThroughSubject.send(error.localizedDescription)
                 }
             }
         }

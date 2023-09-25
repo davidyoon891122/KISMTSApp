@@ -206,7 +206,7 @@
 				3286BC2F2AAFE4F1006BBD8A /* Manager */,
 				32A972D12AB12F350010BB97 /* Coordinator */,
 				323B62622AB980A00067DC2E /* Extension */,
-				3272A17E2ABA69EB00CA4194 /* URLInfo.swift */,
+				32BA6E9E2AC138BF00527DB3 /* URLInfo */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -230,6 +230,14 @@
 				32EA97B32AB1749A002F9116 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		32BA6E9E2AC138BF00527DB3 /* URLInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3272A17E2ABA69EB00CA4194 /* URLInfo.swift */,
+			);
+			path = URLInfo;
 			sourceTree = "<group>";
 		};
 		32EA97B22AB167B4002F9116 /* Model */ = {

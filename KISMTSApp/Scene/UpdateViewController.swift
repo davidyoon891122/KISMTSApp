@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 final class UpdateViewController: UIViewController {
     
@@ -18,6 +19,8 @@ final class UpdateViewController: UIViewController {
     }()
     
     private var updateViewModel: UpdateViewModelType
+    
+    private var cancellable: [AnyCancellable] = []
     
     init(updateViewModel: UpdateViewModelType) {
         self.updateViewModel = updateViewModel
@@ -31,6 +34,7 @@ final class UpdateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +61,15 @@ private extension UpdateViewController {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
         }
+    }
+    
+    func bindViewModel() {
+        updateViewModel.outputs.errorPassThroughSubject
+            .sink(receiveValue: { [weak self] error in
+                guard let self = self else { return }
+                
+            })
+            .store(in: &cancellable)
     }
 }
 
