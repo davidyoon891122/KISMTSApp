@@ -20,6 +20,56 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var accountTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Account Number: 0000000000"
+        
+        return textField
+    }()
+    
+    private lazy var lookUpButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.cornerRadius = 4.0
+        button.setTitle("LookUp", for: .normal)
+        
+        return button
+    }()
+    
+    private lazy var accountInfoView: UIView = {
+        let view = UIView()
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderWidth = 1.0
+        view.layer.cornerRadius = 4.0
+        view.backgroundColor = .secondarySystemBackground
+        [
+            accountTextField,
+            lookUpButton
+        ]
+            .forEach {
+                view.addSubview($0)
+            }
+        
+        
+        accountTextField.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(Constants.Design.offset)
+            $0.leading.equalToSuperview().offset(Constants.Design.offset)
+            $0.bottom.equalToSuperview().offset(-Constants.Design.offset)
+        }
+        
+        lookUpButton.snp.makeConstraints {
+            $0.leading.equalTo(accountTextField.snp.trailing).offset(Constants.Design.offset)
+            $0.centerY.equalTo(accountTextField)
+            $0.trailing.equalToSuperview().offset(-Constants.Design.offset)
+            $0.width.equalTo(80)
+        }
+        
+        lookUpButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
+        return view
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = createLayout()
         
@@ -67,14 +117,21 @@ private extension HomeViewController {
         view.backgroundColor = .systemBackground
         
         [
+            accountInfoView,
             collectionView
         ]
             .forEach {
                 view.addSubview($0)
             }
         
-        collectionView.snp.makeConstraints {
+        accountInfoView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.equalToSuperview().offset(Constants.Design.offset)
+            $0.trailing.equalToSuperview().offset(-Constants.Design.offset)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(accountInfoView.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
@@ -106,7 +163,7 @@ private extension HomeViewController {
     func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
-        snapshot.appendItems([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        snapshot.appendItems([0, 1, 2])
         
         datasource.apply(snapshot, animatingDifferences: true)
     }
