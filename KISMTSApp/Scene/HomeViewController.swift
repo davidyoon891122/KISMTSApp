@@ -52,6 +52,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        configureNavigation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +83,8 @@ private extension HomeViewController {
     
     func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, layoutEnvironment in
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100)))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100)), subitems: [item])
+            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(72)))
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(72)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             
             return section
@@ -113,6 +114,10 @@ private extension HomeViewController {
     @objc
     func didTapDetailButton() {
         homeViewModel.inputs.moveToDetailView()
+    }
+    
+    func configureNavigation() {
+        navigationItem.title = "MyAsset"
     }
 }
 

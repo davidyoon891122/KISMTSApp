@@ -54,12 +54,16 @@ final class MyStockCell: UICollectionViewCell {
             $0.trailing.equalToSuperview()
         }
         
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
         amountLabel.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom)
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+        
+        amountLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return view
     }()
@@ -78,6 +82,7 @@ final class MyStockCell: UICollectionViewCell {
         let label = UILabel()
         label.text = "19,500원"
         label.textColor = .red
+        label.textAlignment = .right
         
         return label
     }()
@@ -112,6 +117,8 @@ final class MyStockCell: UICollectionViewCell {
             $0.leading.equalTo(changePriceLabel.snp.trailing).offset(16)
             $0.trailing.equalToSuperview()
         }
+        
+        changePercentLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return view
     }()
