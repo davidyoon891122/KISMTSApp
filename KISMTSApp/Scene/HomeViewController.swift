@@ -123,7 +123,7 @@ struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
         HomeViewController(homeViewModel: HomeViewModel(
             homeTabCoordinator: HomeTabCoordinator(tabbarController: UITabBarController()),
-            repository: HomeRepository(service: Service())
+            repository: HomeRepository(service: MockService())
         ))
             .showPreview()
     }
