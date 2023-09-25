@@ -30,13 +30,23 @@ extension ServiceType {
         headers: HTTPHeaders = [:],
         params: [String: Any] = [:]
     ) async throws -> T {
-        let dataRequest = AF.request(
-            url,
-            method: method,
-            parameters: params,
-            encoding: JSONEncoding.default,
-            headers: headers
-        )
+        var dataRequest: DataRequest
+        if method == .get {
+            dataRequest = AF.request(
+                url,
+                method: method,
+                parameters: params,
+                headers: headers
+            )
+        } else {
+            dataRequest = AF.request(
+                url,
+                method: method,
+                parameters: params,
+                encoding: JSONEncoding.default,
+                headers: headers
+            )
+        }
 
         let dataTask = dataRequest.serializingDecodable(responseData)
 

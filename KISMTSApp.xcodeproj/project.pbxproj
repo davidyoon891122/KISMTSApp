@@ -10,6 +10,7 @@
 		3202A2FA2AAEA13B002078B0 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2F92AAEA13B002078B0 /* Service.swift */; };
 		3202A2FD2AAEA2D9002078B0 /* UpdateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FC2AAEA2D9002078B0 /* UpdateRepository.swift */; };
 		3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */; };
+		322626EC2ABC17EC00DFAAFD /* BalanceResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322626EB2ABC17EC00DFAAFD /* BalanceResponseModel.swift */; };
 		323B625F2AB963E20067DC2E /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B625E2AB963E20067DC2E /* SeparatorView.swift */; };
 		323B62612AB97FEA0067DC2E /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B62602AB97FEA0067DC2E /* Extension+String.swift */; };
 		3247DAB12AAED56800D181B4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3247DAB02AAED56800D181B4 /* SnapKit */; };
@@ -45,6 +46,7 @@
 		3202A2F92AAEA13B002078B0 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3202A2FC2AAEA2D9002078B0 /* UpdateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRepository.swift; sourceTree = "<group>"; };
 		3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponseModel.swift; sourceTree = "<group>"; };
+		322626EB2ABC17EC00DFAAFD /* BalanceResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceResponseModel.swift; sourceTree = "<group>"; };
 		323B625E2AB963E20067DC2E /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		323B62602AB97FEA0067DC2E /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		3247DAB32AAED8EC00D181B4 /* UpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewModel.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				3202A2FE2AAEBD0C002078B0 /* AccessTokenResponseModel.swift */,
+				322626EB2ABC17EC00DFAAFD /* BalanceResponseModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				3247DAB42AAED8EC00D181B4 /* UpdateViewModel.swift in Sources */,
 				32EA97B42AB1749A002F9116 /* MainCoordinator.swift in Sources */,
 				3202A2FD2AAEA2D9002078B0 /* UpdateRepository.swift in Sources */,
+				322626EC2ABC17EC00DFAAFD /* BalanceResponseModel.swift in Sources */,
 				329885BD2AA1C0CC008E6001 /* TabbarItem.swift in Sources */,
 				32EA97B82AB18D4B002F9116 /* HomeViewModel.swift in Sources */,
 				323B625F2AB963E20067DC2E /* SeparatorView.swift in Sources */,

@@ -57,6 +57,7 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureDatasource()
+        homeViewModel.inputs.requestMyBalance()
     }
 }
 
