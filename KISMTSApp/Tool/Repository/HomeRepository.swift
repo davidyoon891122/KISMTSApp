@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRepositoryType {
-    func requestMyBalance() async throws
+    func requestMyBalance(account: String) async throws
 }
 
 class HomeRepository: HomeRepositoryType {
@@ -19,7 +19,7 @@ class HomeRepository: HomeRepositoryType {
         self.service = service
     }
     
-    func requestMyBalance() async throws {
+    func requestMyBalance(account: String) async throws {
         do {
             let accessToken = try UserDefaultsManager.shared.loadAccessToken()
             
@@ -28,6 +28,11 @@ class HomeRepository: HomeRepositoryType {
             guard let appKey = apiDictionary["appKey"] as? String else { return }
             guard let appSecret = apiDictionary["appSecret"] as? String else { return }
             
+            let accountIndex = account.index(account.startIndex, offsetBy: 8)
+            let accountNumber = account[..<accountIndex]
+            let accountType = account[accountIndex...]
+            
+            print("AccountNumber: \(accountNumber), AccountType: \(accountType)")
             
             if accessToken.accessTokenExpiredDate.isValidStringDate {
                 let bearToken = "\(accessToken.tokenType) \(accessToken.accessToken)"
@@ -42,8 +47,8 @@ class HomeRepository: HomeRepositoryType {
                         "tr_id": "TTTC8434R"
                     ],
                     params: [
-                        "CANO": "63145412",
-                        "ACNT_PRDT_CD": "01",
+                        "CANO": accountNumber,
+                        "ACNT_PRDT_CD": accountType,
                         "AFHR_FLPR_YN": "N",
                         "OFL_YN": "",
                         "INQR_DVSN": "02",

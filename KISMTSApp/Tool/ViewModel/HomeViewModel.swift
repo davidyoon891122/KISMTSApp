@@ -10,7 +10,7 @@ import Combine
 
 protocol HomeViewModelInput {
     func moveToDetailView()
-    func requestMyBalance()
+    func requestMyBalance(account: String)
 }
 
 protocol HomeViewModelOutput {
@@ -42,10 +42,10 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput 
         homeTabCoordinator.goToHomeDetailView()
     }
     
-    func requestMyBalance() {
+    func requestMyBalance(account: String) {
         Task {
             do {
-                try await repository.requestMyBalance()
+                try await repository.requestMyBalance(account: account)
             } catch {
                 print("TODO: Display error message with popupView: \(error.localizedDescription)")
             }

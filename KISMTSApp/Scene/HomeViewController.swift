@@ -111,7 +111,6 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureDatasource()
-        homeViewModel.inputs.requestMyBalance()
     }
 }
 
@@ -205,6 +204,8 @@ private extension HomeViewController {
         }
         
         print(accountNumber)
+        
+        homeViewModel.inputs.requestMyBalance(account: accountNumber)
         
     }
 }
