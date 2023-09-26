@@ -22,7 +22,8 @@ final class HomeViewController: UIViewController {
     
     private lazy var accountTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Account Number: 0000000000"
+        textField.placeholder = "Account Number"
+        textField.delegate = self
         
         return textField
     }()
@@ -111,6 +112,21 @@ final class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         configureDatasource()
         homeViewModel.inputs.requestMyBalance()
+    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = textField.text else { return true }
+        
+        let maxLength = 10
+        let combinedLength = currentText.count + string.count - range.length
+            
+        if combinedLength <= maxLength {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
