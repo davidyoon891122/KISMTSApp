@@ -8,10 +8,10 @@
 import Foundation
 
 struct BalanceResponseModel: Codable {
-    let ctxAreaFk100: String
-    let ctxAreaNk100: String
-    let output1: [Output1]
-    let output2: [Output2]
+    let ctxAreaFk100: String?
+    let ctxAreaNk100: String?
+    let output1: [Output1]?
+    let output2: [Output2]?
     let rtCD: String
     let msgCD: String
     let msg1: String

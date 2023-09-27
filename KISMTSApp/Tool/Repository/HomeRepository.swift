@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeRepositoryType {
-    func requestMyBalance(account: String) async throws
+    func requestMyBalance(account: String) async throws -> BalanceResponseModel
 }
 
 class HomeRepository: HomeRepositoryType {
@@ -19,14 +19,17 @@ class HomeRepository: HomeRepositoryType {
         self.service = service
     }
     
-    func requestMyBalance(account: String) async throws {
+    func requestMyBalance(account: String) async throws -> BalanceResponseModel {
         do {
             let accessToken = try UserDefaultsManager.shared.loadAccessToken()
             
             let apiDictionary = PlistManager.shared.loadKisApi()
             
-            guard let appKey = apiDictionary["appKey"] as? String else { return }
-            guard let appSecret = apiDictionary["appSecret"] as? String else { return }
+            guard let appKey = apiDictionary["appKey"] as? String,
+                  let appSecret = apiDictionary["appSecret"] as? String
+            else {
+                throw AppKeyErrorType.notFound
+            }
             
             let accountIndex = account.index(account.startIndex, offsetBy: 8)
             let accountNumber = account[..<accountIndex]
@@ -63,9 +66,10 @@ class HomeRepository: HomeRepositoryType {
                 
                 print(data)
                 
-                
+                return data
             } else {
                 print("TODO: Display popupView with requesting new access token")
+                throw AccessTokenErrorType.notExist
             }
         } catch {
             throw error

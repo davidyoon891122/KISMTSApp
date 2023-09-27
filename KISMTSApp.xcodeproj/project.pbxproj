@@ -37,6 +37,8 @@
 		32BA6EA22AC13D7F00527DB3 /* CustomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA6EA12AC13D7F00527DB3 /* CustomPopupViewController.swift */; };
 		32BA6EA42AC1437F00527DB3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA6EA32AC1437F00527DB3 /* Constants.swift */; };
 		32BA6EA62AC150C100527DB3 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA6EA52AC150C100527DB3 /* MockService.swift */; };
+		32E6098B2AC3A9350032C45B /* AppKeyErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6098A2AC3A9350032C45B /* AppKeyErrorType.swift */; };
+		32E6098E2AC3AA040032C45B /* AccessTokenErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6098D2AC3AA040032C45B /* AccessTokenErrorType.swift */; };
 		32EA97AD2AB13C83002F9116 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */; };
 		32EA97AF2AB143D3002F9116 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */; };
 		32EA97B12AB167AA002F9116 /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */; };
@@ -76,6 +78,8 @@
 		32BA6EA12AC13D7F00527DB3 /* CustomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewController.swift; sourceTree = "<group>"; };
 		32BA6EA32AC1437F00527DB3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		32BA6EA52AC150C100527DB3 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		32E6098A2AC3A9350032C45B /* AppKeyErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeyErrorType.swift; sourceTree = "<group>"; };
+		32E6098D2AC3AA040032C45B /* AccessTokenErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenErrorType.swift; sourceTree = "<group>"; };
 		32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
@@ -214,7 +218,8 @@
 				32A972D12AB12F350010BB97 /* Coordinator */,
 				323B62622AB980A00067DC2E /* Extension */,
 				32BA6E9E2AC138BF00527DB3 /* URLInfo */,
-				32BA6EA32AC1437F00527DB3 /* Constants.swift */,
+				32E609892AC3A9120032C45B /* Constant */,
+				32E6098C2AC3A9F60032C45B /* Enum */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -246,6 +251,23 @@
 				3272A17E2ABA69EB00CA4194 /* URLInfo.swift */,
 			);
 			path = URLInfo;
+			sourceTree = "<group>";
+		};
+		32E609892AC3A9120032C45B /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				32BA6EA32AC1437F00527DB3 /* Constants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		32E6098C2AC3A9F60032C45B /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				32E6098A2AC3A9350032C45B /* AppKeyErrorType.swift */,
+				32E6098D2AC3AA040032C45B /* AccessTokenErrorType.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		32EA97B22AB167B4002F9116 /* Model */ = {
@@ -362,6 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E6098E2AC3AA040032C45B /* AccessTokenErrorType.swift in Sources */,
+				32E6098B2AC3A9350032C45B /* AppKeyErrorType.swift in Sources */,
 				329885B62AA1BD6E008E6001 /* UIViewPreview.swift in Sources */,
 				32EA97B12AB167AA002F9116 /* AccessTokenModel.swift in Sources */,
 				32BA6EA22AC13D7F00527DB3 /* CustomPopupViewController.swift in Sources */,
