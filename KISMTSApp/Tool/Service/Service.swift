@@ -56,8 +56,7 @@ extension ServiceType {
             return value
         case .failure(let error):
             print(error)
-            print("Service Error: \(error.localizedDescription)")
-            throw NetworkError.responseError
+            throw error
         }
     }
 }

@@ -39,6 +39,7 @@
 		32BA6EA62AC150C100527DB3 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BA6EA52AC150C100527DB3 /* MockService.swift */; };
 		32E6098B2AC3A9350032C45B /* AppKeyErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6098A2AC3A9350032C45B /* AppKeyErrorType.swift */; };
 		32E6098E2AC3AA040032C45B /* AccessTokenErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6098D2AC3AA040032C45B /* AccessTokenErrorType.swift */; };
+		32E609902AC3E5EB0032C45B /* BalanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6098F2AC3E5EB0032C45B /* BalanceModel.swift */; };
 		32EA97AD2AB13C83002F9116 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */; };
 		32EA97AF2AB143D3002F9116 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */; };
 		32EA97B12AB167AA002F9116 /* AccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */; };
@@ -80,6 +81,7 @@
 		32BA6EA52AC150C100527DB3 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		32E6098A2AC3A9350032C45B /* AppKeyErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeyErrorType.swift; sourceTree = "<group>"; };
 		32E6098D2AC3AA040032C45B /* AccessTokenErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenErrorType.swift; sourceTree = "<group>"; };
+		32E6098F2AC3E5EB0032C45B /* BalanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceModel.swift; sourceTree = "<group>"; };
 		32EA97AC2AB13C83002F9116 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		32EA97AE2AB143D3002F9116 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenModel.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				32EA97B02AB167AA002F9116 /* AccessTokenModel.swift */,
+				32E6098F2AC3E5EB0032C45B /* BalanceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				32EA97BC2AB18E66002F9116 /* HomeDetailViewController.swift in Sources */,
 				3298859F2AA1BB3C008E6001 /* ViewController.swift in Sources */,
 				32BA6EA42AC1437F00527DB3 /* Constants.swift in Sources */,
+				32E609902AC3E5EB0032C45B /* BalanceModel.swift in Sources */,
 				3202A2FF2AAEBD0C002078B0 /* AccessTokenResponseModel.swift in Sources */,
 				32A972D72AB130D00010BB97 /* HomeViewController.swift in Sources */,
 				329885B72AA1BD6E008E6001 /* Extension+UIViewController.swift in Sources */,

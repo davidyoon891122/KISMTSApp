@@ -14,6 +14,8 @@ protocol HomeViewModelInput {
 }
 
 protocol HomeViewModelOutput {
+//    var myAssetPassThroughSubject: PassthroughSubject<
+    
 }
 
 protocol HomeViewModelType {
@@ -45,7 +47,9 @@ class HomeViewModel: HomeViewModelType, HomeViewModelInput, HomeViewModelOutput 
     func requestMyBalance(account: String) {
         Task {
             do {
-                try await repository.requestMyBalance(account: account)
+                let data = try await repository.requestMyBalance(account: account)
+                
+                
             } catch {
                 print("TODO: Display error message with popupView: \(error.localizedDescription)")
             }

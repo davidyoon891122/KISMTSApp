@@ -8,35 +8,35 @@
 import Foundation
 
 struct BalanceResponseModel: Codable {
-    let ctxAreaFk100: String?
-    let ctxAreaNk100: String?
+    let ctxAreaFk100: String?       // 연속조회검색조건100
+    let ctxAreaNk100: String?       // 연속조회키100
     let output1: [Output1]?
     let output2: [Output2]?
-    let rtCD: String
-    let msgCD: String
-    let msg1: String
+    let resultCode: String
+    let messageCode: String
+    let message: String
 
     enum CodingKeys: String, CodingKey {
         case ctxAreaFk100 = "ctx_area_fk100"
         case ctxAreaNk100 = "ctx_area_nk100"
         case output1, output2
-        case rtCD = "rt_cd"
-        case msgCD = "msg_cd"
-        case msg1
+        case resultCode = "rt_cd"
+        case messageCode = "msg_cd"
+        case message = "msg1"
     }
 }
 
 // MARK: - Output1
 struct Output1: Codable {
-    let pdno: String
-    let prdtName: String
-    let tradDvsnName: String
-    let bfdyBuyQty: String
-    let bfdySllQty: String
-    let thdtBuyqty: String
-    let thdtSllQty: String
-    let hldgQty: String
-    let ordPsblQty: String
+    let pdno: String                // 종목코드
+    let prdtName: String            // 종목명
+    let tradDvsnName: String        // 매수매도구분
+    let bfdyBuyQty: String          // 전일매수수량
+    let bfdySllQty: String          // 전일매도수량
+    let thdtBuyqty: String          // 금일매수수량
+    let thdtSllQty: String          // 금일매도수량
+    let hldgQty: String             // 보유수량
+    let ordPsblQty: String          // 
     let pchsAvgPric: String
     let pchsAmt: String
     let prpr: String
